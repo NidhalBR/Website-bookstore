@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="custom_product_template" inherit_id="website_sale.products_item">
+        <xpath expr="//h6[@class='o_wsale_products_item_title mb-2']" position="after">
+            <div t-if="product.is_book">
+                <span><strong>Writer's Name:</strong> <t t-esc="product.writer_name.name"/></span>
+            </div>
+            <div t-if="product.is_book">
+                <span><strong>Writer's Last Name:</strong> <t t-esc="product.writer_name.lastname"/></span>
+            </div>
+            <div t-if="product.is_book">
+                <span><strong>Release Date:</strong> <t t-esc="product.release_date"/></span>
+            </div>
+            <div t-if="product.is_book">
+                <span><strong>Copyright:</strong> <t t-raw="product.copyright_"/></span>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="custom_product_template_2" inherit_id="website_sale.product">
+        <xpath expr="//h1[@itemprop='name']" position="after">
+            <t t-if="product.is_book" >
+                <div class="mt-2">
+                    <span><strong>Writer's Name:</strong> <t t-esc="product.writer_name.name"/></span>
+                </div>
+                <div class="mt-1">
+                    <span><strong>Writer's Last Name:</strong> <t t-esc="product.writer_name.lastname"/></span>
+                </div>
+                <div class="mt-1">
+                    <span><strong>Release Date:</strong> <t t-esc="product.release_date"/></span>
+                </div>
+                <div class="mt-1">
+                    <span><strong>Copyright:</strong> <t t-raw="product.copyright_"/></span>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+
+</odoo>
